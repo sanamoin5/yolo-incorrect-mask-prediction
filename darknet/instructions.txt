@@ -1,0 +1,18 @@
+1. Download dataset from ... and add that to data/
+2. Download pretrained convolution weights darknet53.conv.74
+3. Update config/pwmfd.data file with the correct path of data files
+
+4. To execute training, run the command: 
+./darknet detector train config/pwmfd.data config/pwmfd.cfg darknet53.conv.74  
+
+5. To get results, run:
+ python3 test_yolo_custom_trial.py >res_final.txt
+res_val_pred.csv and res_val_pred_filepath.csv will have prediction details for validation images. The output files will be in out_predictions folder.
+
+6. To view more visualizations, do the following:
+   6.1  git clone https://github.com/ultralytics/yolov3  # clone repo
+   6.2  cd yolov3
+   6.3 pip install -r requirements.txt
+   6.4 create yaml
+   6.5 download yolov3.pt weights
+   6.6 run: python train.py --img 640 --batch 16 --epochs 5 --data coco128.yaml --weights yolov3.pt
